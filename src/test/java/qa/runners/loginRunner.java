@@ -9,7 +9,5 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features="src/test/resources/qa.features/login.feature",
 glue= {"qa.stepDefinitions"}, monochrome = true , dryRun = false)
 public class loginRunner {
-
-	
 	
 }

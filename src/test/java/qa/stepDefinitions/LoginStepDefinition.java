@@ -1,40 +1,44 @@
 package qa.stepDefinitions;
 
+import static org.testng.Assert.assertEquals;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import qa.base.Base;
+import qa.pageObjects.HomePage;
+import qa.pageObjects.LoginPage;
 
 public class LoginStepDefinition extends Base{
-	
+    
+	LoginPage loginPage;
+	HomePage homePage;
+		
 	@Given("user is on login page")
 	public void user_is_on_login_page() {
-		launchBrowser();
+		loginPage = new LoginPage(driver);
+		loginPage.launch_browser();
 	}
 
-	@When("user enters valid username and password")
-	public void user_enters_valid_username_and_password() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("user enters valid {string} and {string}")
+	public void user_enters_valid_email_and_password(String email, String password) {
+		loginPage.enter_email_password(email, password);
 	}
 
-	@And("clicks on login button")
-	public void clicks_on_login_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@And("clicks on submit button")
+	public void clicks_on_submit_button() {
+		loginPage.submit_email_password();
 	}
 
-	@Then("user is navigated to home page")
-	public void user_is_navigated_to_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("user is navigated to home page and verify heading {string}")
+	public void user_is_navigated_to_home_page_and_verify_heading(String heading) {
+		assertEquals(loginPage.verify_heading(), heading);
 	}
 
 	@And("close the browser")
 	public void close_the_browser() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		loginPage.teardown();
 	}
 
 }

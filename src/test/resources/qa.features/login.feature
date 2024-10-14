@@ -1,4 +1,4 @@
-#Author: your.email@your.domain.com
+#Author: Swathi Mengji
 #Keywords Summary :
 #Feature: List of scenarios.
 #Scenario: Business rule through list of steps with arguments.
@@ -21,7 +21,11 @@ Feature: Login
 
 Scenario: Check login is successful using valid credentials
 Given user is on login page
-#When user enters valid username and password
-#And clicks on login button
-#Then user is navigated to home page
+When user enters valid "<email>" and "<password>"
+And clicks on submit button
+Then user is navigated to home page and verify heading "Contact List"
 #And close the browser
+
+Examples:
+	|email|password|
+	|pandaperiperi@gmail.com|123abcd|
