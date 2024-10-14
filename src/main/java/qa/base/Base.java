@@ -35,7 +35,7 @@ public class Base {
 		//Read properties from config.properties
 		try {
 			properties = new Properties();
-			FileInputStream input = new FileInputStream("C:/Users/mengj/Documents/QA_Projects/POM-Selenium/src/main/java/qa/config/config.properties");
+			FileInputStream input = new FileInputStream("C:/Users/mengj/Documents/QA_Projects/BDD-Selenium/src/main/java/qa/config/config.properties");
 			properties.load(input);
 		}catch (FileNotFoundException error) {
 			error.printStackTrace();
