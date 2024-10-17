@@ -29,4 +29,4 @@ This automation project tests various functionalities of the VWO website, with a
 
 ## Test Cases Implemented
 
-**Basic framework is setup and tested. Test cases with different functionalities on the way..."
+**Basic framework is setup and tested. Test cases with different functionalities on the way...**
