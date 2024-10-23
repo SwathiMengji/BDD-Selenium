@@ -43,4 +43,4 @@ Expected Result: The hidden content related to the selected dynamic element shou
 Approach: Dynamic elements are handled using explicit waits and XPath to ensure elements are visible and interactable. The scrollToElement() method brings elements into view, while XPath dynamically locates elements by their text and parent relationships.
 
 
-**More test cases with different functionalities on the way..."
+**More test cases with different functionalities on the way..."**
