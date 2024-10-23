@@ -19,8 +19,8 @@ public class LoginPage extends Base{
 	By heading_home = By.xpath("//h1");
 	By logout_button_home = By.id("logout");
 	
-	public void launch_browser() {
-		launchBrowser();
+	public void launch_browser(String urlNum) {
+		launchBrowser(urlNum);
 	}
 	
 	public void enter_email_password(String email, String password) {
@@ -33,7 +33,7 @@ public class LoginPage extends Base{
 	}
 	
 	public String verify_heading() {
-		waitUntilElementByLocator(logout_button_home);
+		//waitUntilElementByLocator(logout_button_home);
 		return driver.findElement(heading_home).getText();
 	}
 	

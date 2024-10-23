@@ -8,8 +8,10 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -45,7 +47,7 @@ public class Base {
 	}
 	
 
-	public static void launchBrowser() {
+	public static void launchBrowser(String urlNum) {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\mengj\\Documents\\QA_Projects\\chromedriver-win64\\chromedriver.exe" );
 		driver = new ChromeDriver();  //"driver" - global variable initialized on top of the code
 		
@@ -55,15 +57,20 @@ public class Base {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Utils.PAGE_LOAD_TIMEOUT_DURATION));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Utils.IMPLICITY_WAIT_DURATION));
 		
-		driver.get(properties.getProperty("url"));
+		//driver.get(url);
+		driver.get(properties.getProperty("url".concat(urlNum)));
 	}
 	
-	public static void waitUntilElementByLocator(By locator) {
+	public static void waitUntilElementByLocator(WebElement locator) {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofMillis(500))
 				.ignoring(NoSuchElementException.class);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+		wait.until(ExpectedConditions.visibilityOf(locator));
+	}
+	
+	public static void scrollToElement(WebElement locator) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", locator);
 	}
 	
 }
