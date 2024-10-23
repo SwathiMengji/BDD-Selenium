@@ -29,7 +29,6 @@ This automation project tests various functionalities of website, with a specifi
 
 ## Test Cases Implemented
 
-
 **Test Case 1**: Handling dynamic elements
 Test Scenario: Validate dynamic elements functionality
 
@@ -42,7 +41,6 @@ Steps:
 Expected Result: The hidden content related to the selected dynamic element should be displayed correctly.
 
 Approach: Dynamic elements are handled using explicit waits and XPath to ensure elements are visible and interactable. The scrollToElement() method brings elements into view, while XPath dynamically locates elements by their text and parent relationships.
-
 
 
 **More test cases with different functionalities on the way..."
