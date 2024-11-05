@@ -9,13 +9,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import qa.base.Base;
-import qa.pageObjects.DynamicElementsPage;
+import qa.pageObjects.AboutPage;
 import qa.pageObjects.LoginPage;
 
 public class LoginStepDefinition extends Base{
     
 	LoginPage loginPage;
-	DynamicElementsPage homePage;
+	AboutPage homePage;
 	Properties properties;
 	
 	@Given("user is on login page")

@@ -11,28 +11,28 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import qa.base.Base;
-import qa.pageObjects.DynamicElementsPage;
+import qa.pageObjects.AboutPage;
 
 public class dynamicElementsStepDefinition extends Base {
 	//Properties properties;
-	DynamicElementsPage dynamicElementsPage;
+	AboutPage aboutPage;
 	String content;
 	
 	@Given("On the homepage verify title {string}")
 	public void on_the_homepage(String string) {
 		launchBrowser("1");
-		dynamicElementsPage = new DynamicElementsPage(driver);
-	    assertEquals(dynamicElementsPage.get_home_page_title(),string);
+		aboutPage = new AboutPage(driver);
+	    assertEquals(aboutPage.get_home_page_title(),string);
 	}
 
 	@When("navigate to the About section")
 	public void navigate_to_the_About_section() {
-		dynamicElementsPage.navigate_to_about_section();
+		aboutPage.navigate_to_about_section();
 	}
 
 	@When("click on {string} to reveal the hidden content")
 	public void click_on_to_reveal_the_hidden_content(String string) {
-		content = dynamicElementsPage.dynamic_elements_test(string);
+		content = aboutPage.dynamic_elements_test(string);
 	}
 
 	@Then("verify that the {string} is displayed")

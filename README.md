@@ -33,14 +33,25 @@ This automation project tests various functionalities of website, with a specifi
 Test Scenario: Validate dynamic elements functionality
 
 Steps:
-1.	Navigate to the homepage and verify the title.
+1. Navigate to the homepage and verify the title.
 2. Navigate to the "About" section.
-2. Click on a dynamic element (e.g., "CP-SAT (Java)") to reveal hidden content.
-2. Verify that the corresponding content is displayed.
+3. Click on a dynamic element (e.g., "CP-SAT (Java)") to reveal hidden content.
+4. Verify that the corresponding content is displayed.
 
 Expected Result: The hidden content related to the selected dynamic element should be displayed correctly.
 
 Approach: Dynamic elements are handled using explicit waits and XPath to ensure elements are visible and interactable. The scrollToElement() method brings elements into view, while XPath dynamically locates elements by their text and parent relationships.
 
+**Test Case 2**: Handling hover elements
+Test Scenario: Validate hover functionality
+
+Steps:
+1. Navigate to the homepage and verify the title.
+2. Navigate to the "About" section.
+3. Verify the hidden content when hovering over the logos.
+
+Expected Result: Hovering over each logo in the About section reveals correctly aligned hidden content.
+
+Approach: Scroll to the logo section using Actions class, hover over the specified logo using its XPath index, retrieve the displayed hover content, and return it for validation.
 
 **More test cases with different functionalities on the way..."**
