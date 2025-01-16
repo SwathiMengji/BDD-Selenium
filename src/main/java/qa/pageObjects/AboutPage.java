@@ -21,8 +21,9 @@ public class AboutPage extends Base{
 	@FindBy(xpath = "//nav[@id='site-navigation']//a[contains(text(),'About')]") WebElement aboutSectionButton;
 	@FindBy(xpath = "//div[@class='elementor-slide-heading'][contains(text(),'About')]") WebElement aboutSectionImageText;
 	@FindBy(id = "eael-adv-accordion-98d6363") WebElement informationAccordian;
-	@FindBy(id = "//section[@data-id='29aa05e']") WebElement logoAccordian;
-	@FindBy(id = "//div[@class='tippy-content']") WebElement hoverContent;
+	@FindBy(xpath = "//section[@data-id='29aa05e']") WebElement logoAccordian;
+	@FindBy(xpath = "//div[@class='tippy-popper']") WebElement hoverLogo;
+	@FindBy(xpath = "//div[@class='tippy-content']") WebElement hoverContent;
 		
 		
 	//Methods
@@ -32,7 +33,7 @@ public class AboutPage extends Base{
 			
 	public void navigate_to_about_section() {
 		aboutSectionButton.click();
-		waitUntilElementByLocator(aboutSectionImageText);
+		waitUntilElementByWebElement(aboutSectionImageText);
 	}
 	
 	public String dynamic_elements_test(String listname) {
@@ -41,20 +42,17 @@ public class AboutPage extends Base{
 		String id = element.getAttribute("id");
 		element.click();
 		WebElement content_element = driver.findElement(By.xpath("//div[@aria-labelledby='"+id+"']//p[2]"));
-		waitUntilElementByLocator(content_element);
+		waitUntilElementByWebElement(content_element);
 		String content = content_element.getText();
 		return content;	
 	}
 	
 	public String hover_test(String listnum) {
-		scrollToElement(logoAccordian);
+		scrollToElement(informationAccordian);
 		Actions actions = new Actions(driver);
         WebElement logoElement = driver.findElement(By.xpath("(//img)["+listnum+"]"));
-        actions.moveToElement(logoElement).perform();		
+        actions.moveToElement(logoElement).perform();
+        waitUntilElementByWebElement(hoverContent);
 		return hoverContent.getText();
-	}
-		
-	public void teardown() {
-		driver.quit();
 	}
 }

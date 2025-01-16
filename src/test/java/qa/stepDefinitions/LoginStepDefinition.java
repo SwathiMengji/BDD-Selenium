@@ -42,7 +42,7 @@ public class LoginStepDefinition extends Base{
 
 	@And("close the browser")
 	public void close_the_browser() {
-		loginPage.teardown();
+		teardown();
 	}
 
 }

@@ -5,6 +5,7 @@ Scenario: Verify dynamic elements on the About page
   When navigate to the About section
   And click on "<dynamic_element>" to reveal the hidden content
   Then verify that the "<content>" is displayed
+  And close the browser
 
   Examples:
 	|dynamic_element|content|

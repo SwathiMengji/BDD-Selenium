@@ -5,6 +5,7 @@ Feature: Handle hover elements on the website
     When navigate to the About section
     And I hover over each "<logo>"
     Then the hidden <content> should be displayed correctly for each logo
+    And close the browser
     
 Examples:
 	|logo|content|

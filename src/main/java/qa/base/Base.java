@@ -61,7 +61,7 @@ public class Base {
 		driver.get(properties.getProperty("url".concat(urlNum)));
 	}
 	
-	public static void waitUntilElementByLocator(WebElement locator) {
+	public static void waitUntilElementByWebElement(WebElement locator) {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofMillis(500))
@@ -69,8 +69,20 @@ public class Base {
 		wait.until(ExpectedConditions.visibilityOf(locator));
 	}
 	
+	public static void waitUntilElementByLocator(By locator) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofMillis(500))
+				.ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
 	public static void scrollToElement(WebElement locator) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", locator);
+	}
+	
+	public static void teardown() {
+		driver.quit();
 	}
 	
 }

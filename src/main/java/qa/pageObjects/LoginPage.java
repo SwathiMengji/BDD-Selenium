@@ -37,7 +37,4 @@ public class LoginPage extends Base{
 		return driver.findElement(heading_home).getText();
 	}
 	
-	public void teardown() {
-		driver.quit();
-	}
 }
